@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список пользователей</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css}"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/css/styles.css" th:href="@{css/styles.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#search").click(function () {
+                $("#users").html("Search...");
+                $("#users").load("/userTable", $("#filterForm").serialize());
+            });
+        });
+    </script>
+</head>
+<body>
+<div th:include="inc/menu"></div>
+
+<div class="container my_container">
+
+    <div class="row" style="min-height: 500px">
+        <div class="col-md-12">
+            <h3>Поиск пользователя</h3>
+            <form role="form" action="#" method="post" id="filterForm">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Логин</label>
+                            <input name="login" type="text" class="form-control input-lg" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Имя</label>
+                            <input name="name" type="text" class="form-control input-lg" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Фамилия</label>
+                            <input name="surname" type="text" class="form-control input-lg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Возраст</label>
+                            <input name="age" type="number" class="form-control input-lg" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Skype</label>
+                            <input name="skype" type="text" class="form-control input-lg" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Город</label>
+                            <input name="city" type="text" class="form-control input-lg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <button type="button" id="search" class="btn btn-lg btn-default">Искать</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div id="users"></div>
+        </div>
+    </div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>

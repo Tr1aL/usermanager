@@ -1,0 +1,22 @@
+<table class="table table-striped" xmlns:th="http://www.thymeleaf.org">
+    <thead>
+    <tr>
+        <th>Логин</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Возраст</th>
+        <th>Скайп</th>
+        <th>Город</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="u : ${list}">
+        <td th:text="${u.login}"></td>
+        <td th:text="${u.name}"></td>
+        <td th:text="${u.surname}"></td>
+        <td th:text="${u.age}"></td>
+        <td th:text="${u.skype}"></td>
+        <td th:text="${u.city}"></td>
+    </tr>
+    </tbody>
+</table>

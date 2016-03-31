@@ -1,0 +1,9 @@
+body {
+    padding-top: 50px;
+}
+
+.my_container {
+    min-height: 600px !important;
+    padding-top: 5px;
+    width: 98% !important;
+}
